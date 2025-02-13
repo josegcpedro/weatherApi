@@ -17,6 +17,7 @@ export class AppComponent {
   showTemperature: boolean = false;
   time: string = "";
   showTime: boolean = false;
+  isStillDay: number = 1;
 
   constructor(private weatherServices: WeatherService) { }
 
@@ -28,6 +29,7 @@ export class AppComponent {
     this.time = data.current.last_updated
     this.showTemperature = true;
     this.showTime = true;
+    this.isStillDay = data.current.is_day;
     })
   }
 }

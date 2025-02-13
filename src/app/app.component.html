@@ -1,6 +1,13 @@
-<div class="video-background">
+<div class="video-background" *ngIf="isStillDay">
   <video autoplay loop muted>
-    <source src="/calmDay.mp4" type="video/mp4">
+    <source src="/backGroundDay.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la balise vidéo.
+  </video>
+</div>
+
+<div class="video-background" *ngIf="!isStillDay">
+  <video autoplay loop muted>
+    <source src="/backGroundNight.mp4" type="video/mp4">
     Votre navigateur ne supporte pas la balise vidéo.
   </video>
 </div>
@@ -18,3 +25,6 @@
   </p>
   <app-card (newLocation)="getLocationWeather($event)"></app-card>
 </div>
+
+
+
