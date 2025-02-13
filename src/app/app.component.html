@@ -1,9 +1,20 @@
+<div class="video-background">
+  <video autoplay loop muted>
+    <source src="/calmDay.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la balise vidéo.
+  </video>
+</div>
+
+<div class="time" *ngIf="showTime">
+  <h1>Date: {{ time }}</h1>
+</div>
+
 <div class="card">
   <h1 class="cityTitle">
-    {{this.city}}
+    {{ this.city }}
   </h1>
-  <p class="cityTemperature">
-    La température est de: {{this.currentTemperature}}
+  <p class="cityTemperature" *ngIf="showTemperature">
+    La température est de: {{ this.currentTemperature }}
   </p>
   <app-card (newLocation)="getLocationWeather($event)"></app-card>
 </div>

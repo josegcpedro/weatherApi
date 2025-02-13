@@ -5,14 +5,32 @@ html, body {
 }
 
 body {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
+    margin: 0;
     height: 100vh;
-    position: relative;
     overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
 }
 
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Utilise toute la largeur de la fenêtre */
+    height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+    z-index: -1;  /* Met la vidéo derrière tout le contenu */
+}
+
+.video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Couvre toute la page, tout en maintenant les proportions */
+}
 
 .card {
     background: white;
@@ -53,10 +71,19 @@ button:hover {
     background: #0056b3;
 }
 
-
-.cityTitle{
+.cityTitle {
     font-size: 40px;
 }
-.cityTemperature{
+
+.cityTemperature {
     font-size: 20px;
+}
+
+.time {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+    color: white;
+    z-index: 10; /* Assurez-vous que le texte soit au-dessus de la vidéo */
 }
