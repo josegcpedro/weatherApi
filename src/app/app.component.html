@@ -1,3 +1,9 @@
-<h1>
-  La temperature à {{city}} est de : {{currentTemperature}} celcius!
-</h1>
+<div class="card">
+  <h1 class="cityTitle">
+    {{this.city}}
+  </h1>
+  <p class="cityTemperature">
+    La température est de: {{this.currentTemperature}}
+  </p>
+  <app-card (newLocation)="getLocationWeather($event)"></app-card>
+</div>
