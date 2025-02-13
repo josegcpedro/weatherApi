@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { WeatherService } from './services/weather.service';
-import { HttpClientModule } from '@angular/common/http'; // <-- Importação necessária
+
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HttpClientModule],
+  imports: [],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  city = "Lucens";
+  city = "Aver-o-mar";
+  currentTemperature = 0;
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherServices: WeatherService){}
 
-  ngOnInit() {
-    this.weatherService.getWeather(this.city).subscribe((data) => {
-      console.log(data); // Exibe os dados no console
+  ngOnInit(){
+    this.weatherServices.getWeather(this.city).subscribe((data) =>{
+      this.currentTemperature = data.current.temp_c
     });
   }
 }
